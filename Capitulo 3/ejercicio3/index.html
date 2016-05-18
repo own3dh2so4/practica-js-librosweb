@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Ejercicio 3</title>
+
+    <script type="text/javascript">
+        function mayorString(array) {
+            var strings = obtenerParametros(array, "string");
+            if (strings && strings.length > 1) {
+              return strings[0] > strings[1] ? strings[0] : strings[1];
+            }
+        }
+
+        function operacionAND(array) {
+          var booleanos = obtenerParametros(array, "boolean");
+          if (booleanos && booleanos.length > 1) {
+            return booleanos[0] && booleanos[1];
+          }
+        }
+
+        function operacionOR(array) {
+          var booleanos = obtenerParametros(array, "boolean");
+          if (booleanos && booleanos.length > 1) {
+            return booleanos[0] || booleanos[1];
+          }
+        }
+
+        function cincoOperaciones(array) {
+          var numeros = obtenerParametros(array, "number");
+          if (numeros && numeros.length > 1) {
+            alert(numeros[0] + numeros[1]);
+            alert(numeros[0] - numeros[1]);
+            alert(numeros[0] * numeros[1]);
+            alert(numeros[0] / numeros[1]);
+            alert(numeros[0] % numeros[1]);
+          }
+        }
+
+        function obtenerParametros(array, type) {
+          var variables = [];
+          for (var i = 0; i<array.length; i++ ) {
+            if ( typeof array[i] == type ) {
+              variables.push(array[i]);
+            }
+          }
+          return variables;
+        }
+
+
+        var valores = [true, 5, false, "hola", "adios", 2];
+
+        var string = mayorString(valores);
+        alert(string);
+
+        var and = operacionAND(valores);
+        alert(and);
+
+        var or = operacionOR(valores);
+        alert(or);
+
+        cincoOperaciones(valores);
+
+    </script>
+</head>
+
+<body>
+
+</body>
+</html>
