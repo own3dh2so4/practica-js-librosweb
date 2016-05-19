@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Ejercicio 5</title>
+
+    <script type="text/javascript">
+      var letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B',
+                    'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E', 'T'];
+
+        var dni = prompt("Introduce tu DNI con LETRA");
+        var dniNumber = dni.substring(0, dni.length - 1 );
+        var letraCorrecta = letras[dniNumber % (letras.length - 1) ];
+        if ( letraCorrecta ===  dni.substring(dni.length - 1,dni.length  )) {
+          alert("OK");
+        } else {
+          alert ("Se esperaba la letra " + letraCorrecta );
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+</html>
