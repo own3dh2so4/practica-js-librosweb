@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Ejercicio 3</title>
+
+    <script type="text/javascript">
+        function esPalindromo(cadena) {
+          if ( typeof cadena !== "string" ) {
+            return false;
+          }
+          //Primero evitamos tener problemas con mayusculas y minusculas
+          var arrayLetras = cadena.toLowerCase();
+          arrayLetras = arrayLetras.split("");
+          //Quitamos espacios en blanco
+          var posicionBlanco = arrayLetras.indexOf(" ");
+          while ( posicionBlanco !== -1 ) {
+            arrayLetras.splice(posicionBlanco, 1);
+            posicionBlanco = arrayLetras.indexOf(" ");
+          }
+
+          return arrayLetras.join("") === arrayLetras.reverse().join("");
+        }
+
+        alert(esPalindromo("La ruta nos aporto otro paso natural"));
+        alert(esPalindromo("Esto no es un palindromo"));
+        alert(esPalindromo(1));
+    </script>
+</head>
+
+<body>
+
+</body>
+</html>
