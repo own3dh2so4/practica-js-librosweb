@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Ejercicio 15 - Información sobre eventos</title>
+
+<style type="text/css">
+body {font-family: arial, helvetica;}
+#info {width:160px; border:thin solid silver; padding:.5em; position:fixed;}
+#info h1 {margin: 0;}
+</style>
+
+<script type="text/javascript">
+
+function eventHandler(event) {
+  //IE
+  event = event || window.event;
+  var infoEvent;
+  switch (event.type) {
+    case "mousemove":
+        infoEvent = getMouseEventInfo(event);
+      break;
+    case "keypress":
+        infoEvent = getKeyPressInfo(event);
+      break;
+  }
+  muestraInformacion(infoEvent);
+}
+
+function getMouseEventInfo(evento) {
+  var informacion = [];
+  informacion.push("Ratón");
+  //Obtenemos la informacion de la posicion respecto al navegador
+  informacion.push("Navegador [" + evento.clientX + "," + evento.clientY +"]")
+  //Obtenemos la posicion del raton respecto a la pagina
+  //Hay que tener cuidado con IE
+  var ie = navigator.userAgent.toLowerCase().indexOf('msie')!=-1;
+  var coordenadaX, coordenadaY;
+  if(ie) {
+    coordenadaX = evento.clientX + document.body.scrollLeft;
+    coordenadaY = evento.clientY + document.body.scrollTop;
+  }
+  else {
+    coordenadaX = evento.pageX;
+    coordenadaY = evento.pageY;
+  }
+  informacion.push("Pagina [" + coordenadaX + "," + coordenadaY +"]")
+  //en la ultima posicion pondremos el color que queremos para el cudrado
+  informacion.push("#FFFFCC");
+
+  return informacion;
+}
+
+function getKeyPressInfo(evento) {
+  var informacion = [];
+  informacion.push("Teclado");
+  informacion.push("Carácter ["+ String.fromCharCode(evento.charCode) +"]");
+  informacion.push("Código ["+ evento.keyCode + "]");
+  informacion.push("#CCE6FF")
+
+  return informacion;
+}
+
+function muestraInformacion(mensaje) {
+	document.getElementById("info").innerHTML = '<h1>'+mensaje[0]+'</h1>';
+	for(var i=1; i<mensaje.length - 1; i++) {
+		document.getElementById("info").innerHTML += '<p>'+mensaje[i]+'</p>';
+	}
+  document.getElementById("info").style.backgroundColor=mensaje[mensaje.length - 1];
+}
+
+window.onload = function () {
+  document.onkeypress = eventHandler;
+  document.onmousemove = eventHandler;
+}
+</script>
+</head>
+
+<body>
+
+<div id="info"></div>
+
+
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
+</body>
+</html>
