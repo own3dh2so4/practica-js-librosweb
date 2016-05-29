@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Ejercicio 1</title>
+
+  <style type="text/css">
+          .oculto { display: none; }
+  </style>
+  <script type="text/javascript">
+    function limita(evento, limite) {
+      var elemento = document.getElementById("texto");
+      evento = evento || window.event;
+
+      return elemento.value.length < limite ||
+                teclaNoCuenta(evento.charCode || evento.keyCode);
+    }
+
+    function actualizaInfo(maximo) {
+      var elemento = document.getElementById("texto");
+      var info = document.getElementById("info");
+      var caracteresRestantes = maximo - elemento.value.length;
+      info.innerHTML = "Te queda " + caracteresRestantes + " caracteres";
+    }
+
+    function teclaNoCuenta(tecla) {
+      var teclas = [8, 46];
+      for ( var i in teclas ) {
+        if (teclas[i] === tecla ) {
+          return true;
+        }
+      }
+      return false;
+    }
+  </script>
+</head>
+
+<body>
+
+  <div id="info">Te queda 100 caracteres</div>
+  <textarea id="texto" onkeypress="return limita(event, 100);" onkeyup="actualizaInfo(100)" rows="6" cols="30"></textarea>
+
+
+</body>
+</html>
